@@ -1,0 +1,127 @@
+{
+    "key": "group_5a2fe71096b49",
+    "title": "Digital anslagstavla - inställningar",
+    "fields": [
+        {
+            "key": "field_5a2fe83a34061",
+            "label": "Överklagande",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_5a2fea0eeae4f",
+            "label": "Information",
+            "name": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Här anger man länk och länktext för länken till hur man överklagar ett anslag. Länken visas längst ner på varje anslag.",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
+            "key": "field_5a2fe82a34060",
+            "label": "Länktext",
+            "name": "digitalboard_settings_appeal_text",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5a2fe7a83405f",
+            "label": "Länk till information om överklagande",
+            "name": "digitalboard_settings_appeal_url",
+            "type": "url",
+            "instructions": "Klistra in länken till sidan som innehåller information om överklagande.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_5a30e4763a369",
+            "label": "Övrigt",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_5a30e3ca3a368",
+            "label": "Relaterade dokument",
+            "name": "digitalboard_settings_file_target",
+            "type": "true_false",
+            "instructions": "Öppna relaterade dokument i nytt fönster",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Ja, öppna relaterade dokument i nytt fönster",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "acf-options-installningar"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1513153438
+}

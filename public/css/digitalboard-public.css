@@ -1,0 +1,86 @@
+/**
+ * All of the CSS for your public-facing functionality should be
+ * included in this file.
+ */
+
+.digitalboard-item{
+    margin-bottom: 1em;
+}
+
+.digitalboard-item__title{
+    font-weight: bold;
+}
+
+.digitalboard-item__value{
+
+}
+
+
+.digitalboard-list{
+    margin-top: 1em;
+}
+
+
+.digitalboard-list .read-more{
+    font-size: 80%;
+}
+
+.post-type-archive-digitalboard .datepicker.dropdown-menu {
+    width: 200px;
+}
+
+.digitalboard-pagination{
+    margin-top: 3em;
+    text-align: center;
+}
+
+.list-group__no-result{
+    font-style: italic;
+}
+
+.digitalboard-list .read-more{
+    float: right;
+}
+
+.digitalboard-list .read-more .icon{
+    width: 2em;
+    height: 2em;
+    fill: #0064ad;
+    opacity: 0.5;
+}
+
+.digitalboard-list a:hover .read-more .icon{
+    opacity: 1;
+}
+
+
+.digitalboard-list .list-group-item{
+    border-color: #eeeeee;
+    border-left: 0;
+    border-right: 0;
+    padding-left: .5em;
+    padding-right: .5em;
+    padding-top: 1.25em;
+    padding-bottom: 1.25em;
+}
+
+.digitalboard-list .list-group-item:hover,
+.digitalboard-list .list-group-item:active,
+.digitalboard-list .list-group-item:focus{
+    background: none;
+    border-color: #eeeeee;
+
+}
+
+.digitalboard-list .list-group-item:first-child, .digitalboard-list .list-group-item:last-child{
+    border-radius: 0;
+}
+
+.digitalboard-list .list-group-item:hover:first-child, .digitalboard-list .list-group-item:hover:last-child{
+    border-color: #eeeeee;
+
+}
+
+.digitalboard-appeal{
+    margin-top: 3em;
+}
