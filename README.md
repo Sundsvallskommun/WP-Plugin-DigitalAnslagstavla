@@ -1,7 +1,9 @@
 # Digital anslagstavla för Sundsvalls kommun
 
 ## Kom igång
-Ladda upp och aktivera pluginen.
+1. Ladda upp och aktivera pluginen Digital Anslagstavla.
+2. Spara om permalänkar
+3. Skapa en sida och lägg till shortcode (se separat information om shortcode).
 
 
 ## Beroenden
