@@ -85,7 +85,7 @@ class Digitalboard_Admin {
 	 */
 	public function update_status(){
 
-		// get the posts that are active
+		// get the posts for digitalboard that are active
 		$args = array(
 			'post_type'      => 'digitalboard',
 			'post_status'    => 'publish',
@@ -96,6 +96,7 @@ class Digitalboard_Admin {
 		$posts = get_posts( $args );
 		$now   = time();
 
+
 		if ( empty( $posts ) ) {
 			return false;
 		}
@@ -104,7 +105,7 @@ class Digitalboard_Admin {
 			$end_date = get_field( 'digitalboard_date_down', $post->ID );
 
 			// check current time vs end time and update post_meta to inactivate a post.
-			if( $now > strtotime( $end_date ) ){
+			if( $now > strtotime( $end_date . ' +1 day' ) ){
 				update_post_meta( $post->ID, 'digitalreport_active', '0' );
 			}
 		}
@@ -288,7 +289,7 @@ class Digitalboard_Admin {
 		// prevent inifity loop by remove hook.
 		remove_action( 'save_post_digitalboard', array( $this, 'save_post' ) );
 
-		if( time() > strtotime( $end_date ) ){
+		if( time() > strtotime( $end_date . ' +1 day' ) ){
 			update_post_meta( $post_id, 'digitalreport_active', '0' );
 		}else{
 			update_post_meta( $post_id, 'digitalreport_active', '1' );

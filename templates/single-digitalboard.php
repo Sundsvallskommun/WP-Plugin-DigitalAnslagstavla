@@ -40,12 +40,17 @@
 						<div class="digitalboard-item__value"><?php echo get_field( 'digitalboard_place', get_the_ID() ); ?></div>
 					</div>
 				<?php endif; ?>
-
 				<?php if(!empty ( get_field( 'digitalboard_paragraph', get_the_ID() ) ) ) : ?>
 				<div class="digitalboard-item">
 					<div class="digitalboard-item__title"><?php _e( 'Paragrafer', 'digitalboard_textdomain' ); ?></div>
 					<div class="digitalboard-item__value"><?php echo get_field( 'digitalboard_paragraph', get_the_ID() ); ?></div>
 				</div>
+				<?php endif; ?>
+				<?php if(!empty ( get_field( 'digitalboard_date_adjust', get_the_ID() ) ) ) : ?>
+					<div class="digitalboard-item">
+						<div class="digitalboard-item__title"><?php _e( 'Justeringsdatum', 'digitalboard_textdomain' ); ?></div>
+						<div class="digitalboard-item__value"><?php echo get_field( 'digitalboard_date_adjust', get_the_ID() ); ?></div>
+					</div>
 				<?php endif; ?>
 				<?php if(!empty ( get_field( 'digitalboard_date_up', get_the_ID() ) ) ) : ?>
 				<div class="digitalboard-item">

@@ -99,6 +99,23 @@
             "maxlength": ""
         },
         {
+            "key": "field_5a79a1fa03b65",
+            "label": "Justeringsdatum",
+            "name": "digitalboard_date_adjust",
+            "type": "date_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "display_format": "Y-m-d",
+            "return_format": "Y-m-d",
+            "first_day": 1
+        },
+        {
             "key": "field_5a0c032178e9c",
             "label": "Paragrafer",
             "name": "digitalboard_paragraph",
@@ -376,5 +393,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1514547483
+    "modified": 1517921234
 }
