@@ -19,90 +19,90 @@
 				<h1 class="single-post__title"><?php echo Digitalboard_Public::get_taxonomy_name( get_field( 'digitalboard_type', get_the_ID() ), 'digitalboard-notice' )->name; ?> : <?php the_title();?></h1>
 
 				<div class="digitalboard-item">
-					<div class="digitalboard-item__title"><?php _e( 'Organ', 'digitalboard_textdomain' ); ?></div>
+					<div class="digitalboard-item__title"><h2><?php _e( 'Organ', 'digitalboard_textdomain' ); ?></h2></div>
 					<div class="digitalboard-item__value"><?php echo Digitalboard_Public::get_taxonomy_name( get_field( 'digitalboard_department', get_the_ID() ), 'digitalboard-department' )->name; ?></div>
 				</div>
 				<?php if(!empty ( get_field( 'digitalboard_date', get_the_ID() ) ) ) : ?>
 				<div class="digitalboard-item">
-					<div class="digitalboard-item__title"><?php _e( 'Sammanträdesdatum', 'digitalboard_textdomain' ); ?></div>
+					<div class="digitalboard-item__title"><h2><?php _e( 'Sammanträdesdatum', 'digitalboard_textdomain' ); ?></h2></div>
 					<div class="digitalboard-item__value"><?php echo get_field( 'digitalboard_date', get_the_ID() ); ?></div>
 				</div>
 				<?php endif; ?>
 				<?php if(!empty ( get_field( 'digitalboard_time', get_the_ID() ) ) ) : ?>
 					<div class="digitalboard-item">
-						<div class="digitalboard-item__title"><?php _e( 'Tid', 'digitalboard_textdomain' ); ?></div>
+						<div class="digitalboard-item__title"><h2><?php _e( 'Tid', 'digitalboard_textdomain' ); ?></h2></div>
 						<div class="digitalboard-item__value"><?php echo get_field( 'digitalboard_time', get_the_ID() ); ?></div>
 					</div>
 				<?php endif; ?>
 				<?php if(!empty ( get_field( 'digitalboard_place', get_the_ID() ) ) ) : ?>
 					<div class="digitalboard-item">
-						<div class="digitalboard-item__title"><?php _e( 'Plats', 'digitalboard_textdomain' ); ?></div>
+						<div class="digitalboard-item__title"><h2><?php _e( 'Plats', 'digitalboard_textdomain' ); ?></h2></div>
 						<div class="digitalboard-item__value"><?php echo get_field( 'digitalboard_place', get_the_ID() ); ?></div>
 					</div>
 				<?php endif; ?>
 				<?php if(!empty ( get_field( 'digitalboard_paragraph', get_the_ID() ) ) ) : ?>
 				<div class="digitalboard-item">
-					<div class="digitalboard-item__title"><?php _e( 'Paragrafer', 'digitalboard_textdomain' ); ?></div>
+					<div class="digitalboard-item__title"><h2><?php _e( 'Paragrafer', 'digitalboard_textdomain' ); ?></h2></div>
 					<div class="digitalboard-item__value"><?php echo get_field( 'digitalboard_paragraph', get_the_ID() ); ?></div>
 				</div>
 				<?php endif; ?>
 				<?php if(!empty ( get_field( 'digitalboard_date_adjust', get_the_ID() ) ) ) : ?>
 					<div class="digitalboard-item">
-						<div class="digitalboard-item__title"><?php _e( 'Justeringsdatum', 'digitalboard_textdomain' ); ?></div>
+						<div class="digitalboard-item__title"><h2><?php _e( 'Justeringsdatum', 'digitalboard_textdomain' ); ?></h2></div>
 						<div class="digitalboard-item__value"><?php echo get_field( 'digitalboard_date_adjust', get_the_ID() ); ?></div>
 					</div>
 				<?php endif; ?>
 				<?php if(!empty ( get_field( 'digitalboard_date_up', get_the_ID() ) ) ) : ?>
 				<div class="digitalboard-item">
-					<div class="digitalboard-item__title"><?php _e( 'Datum då anslaget sätts upp', 'digitalboard_textdomain' ); ?></div>
+					<div class="digitalboard-item__title"><h2><?php _e( 'Datum då anslaget sätts upp', 'digitalboard_textdomain' ); ?></h2></div>
 					<div class="digitalboard-item__value"><?php echo get_field( 'digitalboard_date_up', get_the_ID() ); ?></div>
 				</div>
 				<?php endif; ?>
 				<?php if(!empty ( get_field( 'digitalboard_date_down', get_the_ID() ) ) ) : ?>
 				<div class="digitalboard-item">
-					<div class="digitalboard-item__title"><?php _e( 'Datum då anslaget tas ned', 'digitalboard_textdomain' ); ?></div>
+					<div class="digitalboard-item__title"><h2><?php _e( 'Datum då anslaget tas ned', 'digitalboard_textdomain' ); ?></h2></div>
 					<div class="digitalboard-item__value"><?php echo get_field( 'digitalboard_date_down', get_the_ID() ); ?></div>
 				</div>
 				<?php endif; ?>
 
 				<?php if(!empty ( get_field( 'digitalboard_date_appeal_from', get_the_ID() ) ) ) : ?>
 					<div class="digitalboard-item">
-						<div class="digitalboard-item__title"><?php _e( 'Möjlighet att överklaga beslut under perioden','digtialboard_textdomain' ); ?></div>
+						<div class="digitalboard-item__title"><h2><?php _e( 'Möjlighet att överklaga beslut under perioden','digtialboard_textdomain' ); ?></h2></div>
 						<div class="digitalboard-item__value"><?php printf('%s till och med %s', get_field( 'digitalboard_date_appeal_from', get_the_ID() ),get_field( 'digitalboard_date_appeal_to', get_the_ID() ) ) ;?></div>
 					</div>
 				<?php endif; ?>
 
 				<?php if(!empty ( get_field( 'digitalboard_storage', get_the_ID() ) ) ) : ?>
 				<div class="digitalboard-item">
-					<div class="digitalboard-item__title"><?php _e( 'Förvaringsplats för protokollet', 'digitalboard_textdomain' ); ?></div>
+					<div class="digitalboard-item__title"><h2><?php _e( 'Förvaringsplats för protokollet', 'digitalboard_textdomain' ); ?></h2></div>
 					<div class="digitalboard-item__value"><?php echo get_field( 'digitalboard_storage', get_the_ID() ); ?></div>
 				</div>
 				<?php endif; ?>
 
 				<?php if(!empty ( get_field( 'digitalboard_responsible', get_the_ID() ) ) ) : ?>
 				<div class="digitalboard-item">
-					<div class="digitalboard-item__title"><?php _e( 'Ansvarig', 'digitalboard_textdomain' ); ?></div>
+					<div class="digitalboard-item__title"><h2><?php _e( 'Ansvarig', 'digitalboard_textdomain' ); ?></h2></div>
 					<div class="digitalboard-item__value"><?php echo get_field( 'digitalboard_responsible', get_the_ID() ); ?></div>
 				</div>
 				<?php endif; ?>
 
 				<?php if(!empty ( get_field( 'digitalboard_secretary', get_the_ID() ) ) ) : ?>
 					<div class="digitalboard-item">
-						<div class="digitalboard-item__title"><?php _e( 'Sekreterare', 'digitalboard_textdomain' ); ?></div>
+						<div class="digitalboard-item__title"><h2><?php _e( 'Sekreterare', 'digitalboard_textdomain' ); ?></h2></div>
 						<div class="digitalboard-item__value"><?php echo get_field( 'digitalboard_secretary', get_the_ID() ); ?></div>
 					</div>
 				<?php endif; ?>
 
 				<?php if(!empty ( get_field( 'digitalboard_contact', get_the_ID() ) ) ) : ?>
 					<div class="digitalboard-item">
-						<div class="digitalboard-item__title"><?php _e( 'Kontakt', 'digitalboard_textdomain' ); ?></div>
+						<div class="digitalboard-item__title"><h2><?php _e( 'Kontakt', 'digitalboard_textdomain' ); ?></h2></div>
 						<div class="digitalboard-item__value"><?php echo Digitalboard_Public::get_taxonomy_name( get_field( 'digitalboard_contact', get_the_ID() ), 'digitalboard-department', true ); ?></div>
 					</div>
 				<?php endif; ?>
 
 				<?php if( have_rows('digitalboard_related_docs') ): ?>
 				<div class="digitalboard-item">
-					<div class="digitalboard-item__title"><?php _e( 'Relaterade dokument', 'digitalboard_textdomain' ); ?></div>
+					<div class="digitalboard-item__title"><h2><?php _e( 'Relaterade dokument', 'digitalboard_textdomain' ); ?></h2></div>
 					<?php while ( have_rows('digitalboard_related_docs') ) : the_row();
 						$file = get_sub_field('digitalboard_related_docs_file');
 						$link = get_sub_field('digitalboard_related_docs_link');
@@ -119,7 +119,7 @@
 
 				<?php if(!empty ( get_field( 'digitalboard_text', get_the_ID() ) ) ) : ?>
 				<div class="digitalboard-item">
-					<div class="digitalboard-item__title"><?php _e( 'Övrig information', 'digitalboard_textdomain' ); ?></div>
+					<div class="digitalboard-item__title"><h2><?php _e( 'Övrig information', 'digitalboard_textdomain' ); ?></h2></div>
 					<div class="digitalboard-item__value"><?php echo get_field( 'digitalboard_text', get_the_ID() ); ?></div>
 				</div>
 				<?php endif; ?>
