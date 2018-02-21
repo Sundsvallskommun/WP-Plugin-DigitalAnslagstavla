@@ -58,7 +58,6 @@ class Digitalboard_Admin {
 
 	}
 
-
 	/**
 	 * Adding settings page ACF
 	 *
@@ -134,10 +133,21 @@ class Digitalboard_Admin {
 				'show_ui'         => true,
 				'menu_position'   => 30,
 				'menu_icon'       => 'dashicons-list-view',
-				'capability_type' => 'post',
 				'has_archive'     => true,
 				'hierarchical'    => false,
 				'rewrite'         => array( 'slug' => 'anslag', 'with_front' => false ),
+				'capability_type' => array('post','digitalboard', 'digitalboards'),
+				'capabilities' => array(
+					'edit_post'          => 'edit_digitalboard',
+					'edit_posts'         => 'edit_digitalboards',
+					'edit_others_posts'  => 'edit_others_digitalboards',
+					'publish_posts'      => 'publish_digitalboards',
+					'read_post'          => 'read_digitalboard',
+					'read_private_posts' => 'read_private_digitalboards',
+					'delete_post'        => 'delete_digitalboard',
+					'delete_posts'       => 'delete_digitalboards'
+				),
+
 				'supports'        => array( 'title' )
 			)
 		);
@@ -171,7 +181,13 @@ class Digitalboard_Admin {
 				'show_ui'      => true,
 				'hierarchical' => false,
 				'parent_item'  => null,
-				'parent_item_colon' => null
+				'parent_item_colon' => null,
+				'capabilities' => array(
+					'assign_terms' => 'assign_digitalboard-notice',
+					'edit_terms'   => 'edit_digitalboard-notice',
+					'manage_terms' => 'manage_digitalboard-notice',
+					'delete_terms' => 'delete_digitalboard-notice',
+				)
 			)
 		);
 
@@ -194,7 +210,13 @@ class Digitalboard_Admin {
 				'show_ui'      => true,
 				'hierarchical' => false,
 				'parent_item'  => null,
-				'parent_item_colon' => null
+				'parent_item_colon' => null,
+				'capabilities' => array(
+					'assign_terms' => 'assign_digitalboard-department',
+					'edit_terms'   => 'edit_digitalboard-department',
+					'manage_terms' => 'manage_digitalboard-department',
+					'delete_terms' => 'delete_digitalboard-department',
+				)
 			)
 		);
 
