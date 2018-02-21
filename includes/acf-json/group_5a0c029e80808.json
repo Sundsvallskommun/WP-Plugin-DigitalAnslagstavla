@@ -187,7 +187,7 @@
         },
         {
             "key": "field_5a2fedd4efa6b",
-            "label": "Möjlighet att överklaga till datum",
+            "label": "Möjlighet att överklaga till och med datum",
             "name": "digitalboard_date_appeal_to",
             "type": "date_picker",
             "instructions": "",
