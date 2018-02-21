@@ -1,6 +1,9 @@
 <div class="digitalboard-list">
 	<?php if(!empty($title)) : ?>
 		<h2><?php echo $title; ?></h2>
+		<?php if( !empty( $desc ) ) : ?>
+			<p class="digitalboard-list__desc"><?php echo $desc; ?></p>
+		<?php endif; ?>
 	<?php endif; ?>
 	<div class="list-group">
 	<?php if(!empty($posts)) : foreach ( $posts as $post ) : ?>

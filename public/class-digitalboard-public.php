@@ -81,13 +81,15 @@ class Digitalboard_Public {
 	public function output( $atts ){
 
 		$atts = shortcode_atts( array(
-			'anslagstyp' => 'anslagbevis',
-			'titel'      => false
+			'anslagstyp'    => 'anslagbevis',
+			'titel'         => false,
+			'beskrivning'   => false
 		), $atts );
 
 
 		$posts = $this->get_filtered_posts( $atts );
-		$title = !empty( $atts['titel'] ) ? $atts['titel'] : null;
+		$title = ! empty( $atts['titel'] ) ? $atts['titel'] : null;
+		$desc  = ! empty( $atts['beskrivning'] ) ? $atts['beskrivning'] : null;
 
 		//start buffering
 		ob_start();
