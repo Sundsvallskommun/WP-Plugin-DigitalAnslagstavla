@@ -104,6 +104,99 @@
             "ui": 0,
             "ui_on_text": "",
             "ui_off_text": ""
+        },
+        {
+            "key": "field_5a8e9769e29f3",
+            "label": "Avancerade inställningar",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_5a8e979bddbcd",
+            "label": "",
+            "name": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Dessa inställningar ska hanteras av administratör.",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
+            "key": "field_5a8da490c3a1f",
+            "label": "Slug till arkiv",
+            "name": "digitalboard_settings_archive_slug",
+            "type": "text",
+            "instructions": "Observera att permalänkar behöver skrivas om efter eventuell uppdatering.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5a8da4f7c3a20",
+            "label": "Slug för posttyp",
+            "name": "digitalboard_settings_cpt_slug",
+            "type": "text",
+            "instructions": "Observera att permalänkar behöver skrivas om efter eventuell uppdatering.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5a8e90b003c43",
+            "label": "Välj sida för digitala anslag",
+            "name": "digitalboard_settings_page_id",
+            "type": "post_object",
+            "instructions": "Välj den sida som listar ut de digitala anslagen.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "page"
+            ],
+            "taxonomy": [],
+            "allow_null": 0,
+            "multiple": 0,
+            "return_format": "id",
+            "ui": 1
         }
     ],
     "location": [
@@ -123,5 +216,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1513153438
+    "modified": 1519293767
 }
