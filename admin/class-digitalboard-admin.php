@@ -120,6 +120,9 @@ class Digitalboard_Admin {
 	 */
 	public function register_post_type() {
 
+		$archive_slug = ! empty( get_field( 'digitalboard_settings_archive_slug', 'options' ) ) ? get_field( 'digitalboard_settings_archive_slug', 'options' ) : 'arkiverade-anslag';
+		$cpt_slug     = ! empty( get_field( 'digitalboard_settings_cpt_slug', 'options' ) ) ? get_field( 'digitalboard_settings_cpt_slug', 'options' ) : 'anslag';
+
 		register_post_type( 'digitalboard',
 			array(
 				'labels'          => array(
@@ -133,9 +136,9 @@ class Digitalboard_Admin {
 				'show_ui'         => true,
 				'menu_position'   => 30,
 				'menu_icon'       => 'dashicons-list-view',
-				'has_archive'     => true,
+				'has_archive'     => $archive_slug,
 				'hierarchical'    => false,
-				'rewrite'         => array( 'slug' => 'anslag', 'with_front' => false ),
+				'rewrite'         => array( 'slug' => $cpt_slug, 'with_front' => false ),
 				'capability_type' => array('post','digitalboard', 'digitalboards'),
 				'capabilities' => array(
 					'edit_post'          => 'edit_digitalboard',
