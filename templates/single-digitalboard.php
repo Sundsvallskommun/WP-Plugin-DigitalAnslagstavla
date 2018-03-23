@@ -19,8 +19,8 @@
 				<h1 class="single-post__title"><?php echo Digitalboard_Public::get_taxonomy_name( get_field( 'digitalboard_type', get_the_ID() ), 'digitalboard-notice' )->name; ?> : <?php the_title();?></h1>
 
 				<div class="digitalboard-item">
-					<div class="digitalboard-item__title"><h2><?php _e( 'Organ', 'digitalboard_textdomain' ); ?></h2></div>
-					<div class="digitalboard-item__value"><p><?php echo Digitalboard_Public::get_taxonomy_name( get_field( 'digitalboard_department', get_the_ID() ), 'digitalboard-department' )->name; ?></p></div>
+					<div class="digitalboard-item__title" tabindex="12"><h2><?php _e( 'Organ', 'digitalboard_textdomain' ); ?></h2></div>
+					<div class="digitalboard-item__value" tabindex="13"><p><?php echo Digitalboard_Public::get_taxonomy_name( get_field( 'digitalboard_department', get_the_ID() ), 'digitalboard-department' )->name; ?></p></div>
 				</div>
 				<?php if(!empty ( get_field( 'digitalboard_date', get_the_ID() ) ) ) : ?>
 				<div class="digitalboard-item">
@@ -104,13 +104,13 @@
 				<div class="digitalboard-item">
 					<div class="digitalboard-item__title"><h2><?php _e( 'Relaterade dokument', 'digitalboard_textdomain' ); ?></h2></div>
 					<?php while ( have_rows('digitalboard_related_docs') ) : the_row();
-						$file = get_sub_field('digitalboard_related_docs_file');
+						$link_to_file = get_sub_field('digitalboard_related_docs_file');
 						$link = get_sub_field('digitalboard_related_docs_link');
 						if( !empty( $link )){
 							$file['url'] = $link;
+						}else{
+							$file['url'] = $link_to_file;
 						}
-
-
 						?>
 						<div class="digitalboard-item__value"><p><a <?php echo !empty( get_field('digitalboard_settings_file_target', 'options' ) ) ? 'target="_blank"' : null;?>href="<?php echo !empty( $file['url'] ) ? $file['url'] : '#';?>"><?php echo get_sub_field( 'digitalboard_related_docs_title' ); ?></a></p></div>
 					<?php endwhile; ?>
@@ -119,7 +119,7 @@
 
 				<?php if(!empty ( get_field( 'digitalboard_text', get_the_ID() ) ) ) : ?>
 				<div class="digitalboard-item">
-					<div class="digitalboard-item__title"><h2><?php _e( 'Övrig information', 'digitalboard_textdomain' ); ?></h2></div>
+					<div class="digitalboard-item__title"><h2><?php _e( 'Information', 'digitalboard_textdomain' ); ?></h2></div>
 					<div class="digitalboard-item__value"><p><?php echo get_field( 'digitalboard_text', get_the_ID() ); ?></p></div>
 				</div>
 				<?php endif; ?>
@@ -129,11 +129,6 @@
 						<p><a href="<?php echo get_field( 'digitalboard_settings_appeal_url', 'options' ); ?>"><?php echo get_field( 'digitalboard_settings_appeal_text', 'options' ); ?></a></p>
 					</div>
 				<?php endif; ?>
-
-				<div class="digitalboard-archive digitalboard-link">
-					<p><a href="<?php echo get_post_type_archive_link( $post_type ); ?>" title="<?php _e( 'Klicka här för gå till arkiverade anslag', 'digitalboard_textdomain' ); ?>"><?php _e( 'Klicka här för gå till arkiverade anslag', 'digitalboard_textdomain' ); ?></a></p>
-				</div><!-- .digitalboard-archive -->
-
 
 
 
