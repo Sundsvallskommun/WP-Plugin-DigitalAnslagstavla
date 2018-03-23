@@ -69,6 +69,21 @@ class Digitalboard_Public {
 	}
 
 	/**
+	 * Adding link after content on the page where shortcode is used.
+	 *
+	 * @author Daniel Pihlström <daniel.pihlstrom@cybercom.com>
+	 *
+	 */
+	public function link_to_archive(){
+		global $post;
+		if( has_shortcode( $post->post_content, 'digital-anslagstavla' ) ) : ?>
+			<div class="digitalboard-archive-link digitalboard-link">
+				<p><a href="<?php echo get_post_type_archive_link( 'digitalboard' ); ?>" title="<?php _e( 'Klicka här för gå till arkiverade anslag', 'digitalboard_textdomain' ); ?>"><?php _e( 'Klicka här för gå till arkiverade anslag', 'digitalboard_textdomain' ); ?></a></p>
+			</div><!-- .digitalboard-archive-link -->
+		<?php endif;
+	}
+
+	/**
 	 * Break into breadcrumb trail for sundsvall.se to fix custom breadcrumbs for cpt.
 	 *
 	 * @author Daniel Pihlström <daniel.pihlstrom@cybercom.com>
