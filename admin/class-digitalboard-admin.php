@@ -59,6 +59,41 @@ class Digitalboard_Admin {
 	}
 
 	/**
+	 * Adding custom mce toolbar to ACF.
+	 *
+	 * @author Daniel Pihlström <daniel.pihlstrom@cybercom.com>
+	 *
+	 * @param $toolbars
+	 *
+	 * @return mixed
+	 */
+	 public function acf_tiny_mce_settings($toolbars){
+		 $toolbars['Digital anslagstavla'] = array();
+		 $toolbars['Digital anslagstavla'][1] = explode(',','formatselect, bullist, link, unlink, pastetext');
+		 return $toolbars;
+	 }
+
+	/**
+	 * Modifying the format mce selector.
+	 *
+	 * @author Daniel Pihlström <daniel.pihlstrom@cybercom.com>
+	 *
+	 * @param $formats
+	 *
+	 * @return string
+	 */
+	 public function tiny_mce_custom_formats( $formats ){
+		 $screen = get_current_screen();
+		 if( $screen->parent_file !== 'edit.php?post_type=digitalboard' ){
+		 	return $formats;
+		 }
+
+		 $formats['block_formats'] = 'Paragraph=p;Heading 3=h3;';
+		 return $formats;
+
+	 }
+
+	/**
 	 * Adding settings page ACF
 	 *
 	 * @author Daniel Pihlström <daniel.pihlstrom@cybercom.com>
