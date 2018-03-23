@@ -68,6 +68,7 @@ class Digitalboard_Activator {
 			'edit_digitalboard-department'   => true,
 			'manage_digitalboard-department' => true,
 			'delete_digitalboard-department' => true,
+			'upload_files'                   => true
 		);
 
 		// add role and caps.
