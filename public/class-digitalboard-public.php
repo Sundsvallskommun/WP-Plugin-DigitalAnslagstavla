@@ -69,6 +69,68 @@ class Digitalboard_Public {
 	}
 
 	/**
+	 * Adding link after content on the page where shortcode is used.
+	 *
+	 * @author Daniel Pihlström <daniel.pihlstrom@cybercom.com>
+	 *
+	 */
+	public function link_to_archive(){
+		global $post;
+		if( has_shortcode( $post->post_content, 'digital-anslagstavla' ) ) : ?>
+			<div class="digitalboard-archive-link digitalboard-link">
+				<p><a href="<?php echo get_post_type_archive_link( 'digitalboard' ); ?>" title="<?php _e( 'Visa alla arkiverade anslag', 'digitalboard_textdomain' ); ?>"><?php _e( 'Visa alla arkiverade anslag', 'digitalboard_textdomain' ); ?></a></p>
+			</div><!-- .digitalboard-archive-link -->
+		<?php endif;
+	}
+
+	/**
+	 * Break into breadcrumb trail for sundsvall.se to fix custom breadcrumbs for cpt.
+	 *
+	 * @author Daniel Pihlström <daniel.pihlstrom@cybercom.com>
+	 *
+	 * @param $bc
+	 *
+	 * @return mixed
+	 */
+	public function breadcrumbs( $bc ) {
+
+		if ( is_post_type_archive( 'digitalboard' ) || is_singular( 'digitalboard' ) ) {
+			global $post;
+
+			$page_id  = get_field( 'digitalboard_settings_page_id', 'options' );
+			$home_url = get_option( 'home' );
+
+			$custom_bc = ''; // Breadcrumb string to return
+
+			// start building custom breadcrumb.
+			$front_page_title = get_the_title( get_option( 'page_on_front' ) );
+			$custom_bc .= bc_item( $front_page_title, $home_url );
+
+			$ancestors = get_ancestors( $page_id, 'page' );
+			foreach ( array_reverse( $ancestors ) as $ancestor ) {
+				$custom_bc .= bc_item( get_the_title( $ancestor ), get_the_permalink( $ancestor ) );
+			}
+
+			$custom_bc .= bc_item( get_the_title( $page_id ), get_the_permalink( $page_id ) );
+
+			// archive or single item
+			if ( is_archive() ) {
+				$custom_bc .= bc_item( 'Arkiverade anslag' );
+			} else {
+				$custom_bc .= bc_item( get_the_title( $post->ID ) );
+			}
+
+			$bc = preg_replace( '/<ol[^>]*>.*?<\/ol>/i', '<ol class="breadcrumb">' . $custom_bc . '</ol>', $bc );
+
+			return $bc;
+
+		}
+
+		return $bc;
+
+	}
+
+	/**
 	 * Register the short code
 	 *
 	 * @author Daniel Pihlström <daniel.pihlstrom@cybercom.com>
@@ -81,13 +143,15 @@ class Digitalboard_Public {
 	public function output( $atts ){
 
 		$atts = shortcode_atts( array(
-			'anslagstyp' => 'anslagbevis',
-			'titel'      => false
+			'anslagstyp'    => 'anslagbevis',
+			'titel'         => false,
+			'beskrivning'   => false
 		), $atts );
 
 
 		$posts = $this->get_filtered_posts( $atts );
-		$title = !empty( $atts['titel'] ) ? $atts['titel'] : null;
+		$title = ! empty( $atts['titel'] ) ? $atts['titel'] : null;
+		$desc  = ! empty( $atts['beskrivning'] ) ? $atts['beskrivning'] : null;
 
 		//start buffering
 		ob_start();

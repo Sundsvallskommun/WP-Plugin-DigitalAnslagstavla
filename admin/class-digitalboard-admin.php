@@ -58,6 +58,40 @@ class Digitalboard_Admin {
 
 	}
 
+	/**
+	 * Adding custom mce toolbar to ACF.
+	 *
+	 * @author Daniel Pihlström <daniel.pihlstrom@cybercom.com>
+	 *
+	 * @param $toolbars
+	 *
+	 * @return mixed
+	 */
+	 public function acf_tiny_mce_settings($toolbars){
+		 $toolbars['Digital anslagstavla'] = array();
+		 $toolbars['Digital anslagstavla'][1] = explode(',','formatselect, bullist, link, unlink, pastetext');
+		 return $toolbars;
+	 }
+
+	/**
+	 * Modifying the format mce selector.
+	 *
+	 * @author Daniel Pihlström <daniel.pihlstrom@cybercom.com>
+	 *
+	 * @param $formats
+	 *
+	 * @return string
+	 */
+	 public function tiny_mce_custom_formats( $formats ){
+		 $screen = get_current_screen();
+		 if( $screen->parent_file !== 'edit.php?post_type=digitalboard' ){
+		 	return $formats;
+		 }
+
+		 $formats['block_formats'] = 'Paragraph=p;Heading 3=h3;';
+		 return $formats;
+
+	 }
 
 	/**
 	 * Adding settings page ACF
@@ -121,6 +155,9 @@ class Digitalboard_Admin {
 	 */
 	public function register_post_type() {
 
+		$archive_slug = ! empty( get_field( 'digitalboard_settings_archive_slug', 'options' ) ) ? get_field( 'digitalboard_settings_archive_slug', 'options' ) : 'arkiverade-anslag';
+		$cpt_slug     = ! empty( get_field( 'digitalboard_settings_cpt_slug', 'options' ) ) ? get_field( 'digitalboard_settings_cpt_slug', 'options' ) : 'anslag';
+
 		register_post_type( 'digitalboard',
 			array(
 				'labels'          => array(
@@ -134,10 +171,21 @@ class Digitalboard_Admin {
 				'show_ui'         => true,
 				'menu_position'   => 30,
 				'menu_icon'       => 'dashicons-list-view',
-				'capability_type' => 'post',
-				'has_archive'     => true,
+				'has_archive'     => $archive_slug,
 				'hierarchical'    => false,
-				'rewrite'         => array( 'slug' => 'anslag', 'with_front' => false ),
+				'rewrite'         => array( 'slug' => $cpt_slug, 'with_front' => false ),
+				'capability_type' => array('post','digitalboard', 'digitalboards'),
+				'capabilities' => array(
+					'edit_post'          => 'edit_digitalboard',
+					'edit_posts'         => 'edit_digitalboards',
+					'edit_others_posts'  => 'edit_others_digitalboards',
+					'publish_posts'      => 'publish_digitalboards',
+					'read_post'          => 'read_digitalboard',
+					'read_private_posts' => 'read_private_digitalboards',
+					'delete_post'        => 'delete_digitalboard',
+					'delete_posts'       => 'delete_digitalboards'
+				),
+
 				'supports'        => array( 'title' )
 			)
 		);
@@ -171,7 +219,13 @@ class Digitalboard_Admin {
 				'show_ui'      => true,
 				'hierarchical' => false,
 				'parent_item'  => null,
-				'parent_item_colon' => null
+				'parent_item_colon' => null,
+				'capabilities' => array(
+					'assign_terms' => 'assign_digitalboard-notice',
+					'edit_terms'   => 'edit_digitalboard-notice',
+					'manage_terms' => 'manage_digitalboard-notice',
+					'delete_terms' => 'delete_digitalboard-notice',
+				)
 			)
 		);
 
@@ -194,7 +248,13 @@ class Digitalboard_Admin {
 				'show_ui'      => true,
 				'hierarchical' => false,
 				'parent_item'  => null,
-				'parent_item_colon' => null
+				'parent_item_colon' => null,
+				'capabilities' => array(
+					'assign_terms' => 'assign_digitalboard-department',
+					'edit_terms'   => 'edit_digitalboard-department',
+					'manage_terms' => 'manage_digitalboard-department',
+					'delete_terms' => 'delete_digitalboard-department',
+				)
 			)
 		);
 

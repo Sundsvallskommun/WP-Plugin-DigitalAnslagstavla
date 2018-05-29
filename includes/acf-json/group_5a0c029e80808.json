@@ -30,7 +30,7 @@
             "name": "digitalboard_department",
             "type": "taxonomy",
             "instructions": "För att lägga till en ny avdelning\/organ, för musen över rullgardinsmenyn under och klicka på plustecknet som visar sig längst upp till höger eller från vänstermenyn \"Digital anslagstavla > Avdelning\/organ\".",
-            "required": 1,
+            "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -52,7 +52,7 @@
             "name": "digitalboard_date",
             "type": "date_picker",
             "instructions": "",
-            "required": 1,
+            "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -140,7 +140,7 @@
             "name": "digitalboard_date_up",
             "type": "date_picker",
             "instructions": "",
-            "required": 1,
+            "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -157,7 +157,7 @@
             "name": "digitalboard_date_down",
             "type": "date_picker",
             "instructions": "",
-            "required": 1,
+            "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -246,7 +246,7 @@
             "name": "digitalboard_contact",
             "type": "taxonomy",
             "instructions": "",
-            "required": 1,
+            "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -320,25 +320,6 @@
                     "maxlength": ""
                 },
                 {
-                    "key": "field_5a1565692428f",
-                    "label": "Koppla\/ladda upp ett dokument",
-                    "name": "digitalboard_related_docs_file",
-                    "type": "file",
-                    "instructions": "Välj detta alternativ om en fil ska laddas upp eller kopplas på webbplatsen.",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "return_format": "array",
-                    "library": "all",
-                    "min_size": "",
-                    "max_size": "",
-                    "mime_types": ""
-                },
-                {
                     "key": "field_5a251974ee0a8",
                     "label": "Länk till dokument",
                     "name": "digitalboard_related_docs_link",
@@ -353,12 +334,31 @@
                     },
                     "default_value": "",
                     "placeholder": ""
+                },
+                {
+                    "key": "field_5ab3ae2fbd951",
+                    "label": "Koppla\/ladda upp fil",
+                    "name": "digitalboard_related_docs_file",
+                    "type": "file",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "url",
+                    "library": "all",
+                    "min_size": "",
+                    "max_size": "",
+                    "mime_types": ""
                 }
             ]
         },
         {
             "key": "field_5a0c04ac78ea1",
-            "label": "Fritext",
+            "label": "Information (fritext)",
             "name": "digitalboard_text",
             "type": "wysiwyg",
             "instructions": "",
@@ -371,7 +371,7 @@
             },
             "default_value": "",
             "tabs": "all",
-            "toolbar": "basic",
+            "toolbar": "digital_anslagstavla",
             "media_upload": 0,
             "delay": 0
         }
@@ -393,5 +393,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1517921234
+    "modified": 1521795237
 }

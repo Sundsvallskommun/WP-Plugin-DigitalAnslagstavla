@@ -164,6 +164,9 @@ class Digitalboard {
 		$this->loader->add_filter( 'manage_digitalboard_posts_columns', $plugin_admin, 'custom_admin_columns' );
 		$this->loader->add_action( 'manage_digitalboard_posts_custom_column', $plugin_admin, 'custom_admin_column', 10, 2 );
 
+		$this->loader->add_filter( 'acf/fields/wysiwyg/toolbars', $plugin_admin, 'acf_tiny_mce_settings' );
+		$this->loader->add_filter( 'tiny_mce_before_init', $plugin_admin, 'tiny_mce_custom_formats', 20 );
+
 		$this->loader->add_action( 'digitalboard_status', $plugin_admin, 'update_status', 10, 2 );
 
 
@@ -180,11 +183,14 @@ class Digitalboard {
 	private function define_public_hooks() {
 
 		$plugin_public = new Digitalboard_Public( $this->get_plugin_name(), $this->get_version() );
+		$this->loader->add_filter( 'sk_breadcrumbs', $plugin_public, 'breadcrumbs' );
 		$this->loader->add_action( 'wp', $plugin_public, 'add_shortcode' );
 		$this->loader->add_action( 'init', $plugin_public, 'session_start' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
 		$this->loader->add_action( 'pre_get_posts', $plugin_public, 'digitalboard_archive' );
+		$this->loader->add_action( 'sk_after_page_content', $plugin_public, 'link_to_archive' );
+
 
 		$this->loader->add_filter( 'single_template', $plugin_public, 'single_template' );
 		$this->loader->add_filter( 'archive_template', $plugin_public, 'archive_template' );
