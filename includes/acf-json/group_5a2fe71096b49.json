@@ -106,6 +106,25 @@
             "ui_off_text": ""
         },
         {
+            "key": "field_5b8fe07bc7437",
+            "label": "Länk till arkiverade anslag",
+            "name": "digitalboard_settings_link_to_archive",
+            "type": "true_false",
+            "instructions": "Visa länk till arkiverade anslag längs ner på sidan som listar anslagen.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Ja, visa en länk till arkiverade anslag",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
             "key": "field_5a8e9769e29f3",
             "label": "Avancerade inställningar",
             "name": "",
@@ -216,5 +235,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1519293767
+    "modified": 1536154953
 }

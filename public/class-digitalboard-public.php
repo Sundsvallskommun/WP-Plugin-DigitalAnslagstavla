@@ -74,11 +74,13 @@ class Digitalboard_Public {
 	 * @author Daniel Pihlström <daniel.pihlstrom@cybercom.com>
 	 *
 	 */
-	public function link_to_archive(){
+	public function link_to_archive() {
 		global $post;
-		if( has_shortcode( $post->post_content, 'digital-anslagstavla' ) ) : ?>
+		if ( get_field( 'digitalboard_settings_link_to_archive', 'options' ) && has_shortcode( $post->post_content, 'digital-anslagstavla' ) ) : ?>
 			<div class="digitalboard-archive-link digitalboard-link">
-				<p><a href="<?php echo get_post_type_archive_link( 'digitalboard' ); ?>" title="<?php _e( 'Visa alla arkiverade anslag', 'digitalboard_textdomain' ); ?>"><?php _e( 'Visa alla arkiverade anslag', 'digitalboard_textdomain' ); ?></a></p>
+				<p><a href="<?php echo get_post_type_archive_link( 'digitalboard' ); ?>"
+				      title="<?php _e( 'Visa alla arkiverade anslag', 'digitalboard_textdomain' ); ?>"><?php _e( 'Visa alla arkiverade anslag', 'digitalboard_textdomain' ); ?></a>
+				</p>
 			</div><!-- .digitalboard-archive-link -->
 		<?php endif;
 	}
