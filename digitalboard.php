@@ -16,7 +16,7 @@
  * Plugin Name:       Digital Anslagstavla
  * Plugin URI:        https://github.com
  * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
- * Version:           1.0.0
+ * Version:           1.4.0
  * Author:            Daniel Pihlström
  * Author URI:        http://cybercom.com
  * License:           GPL-2.0+
@@ -30,7 +30,7 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-define( 'PLUGIN_NAME_VERSION', '1.2.0' );
+define( 'DIGITALBOARD_VERSION', '1.4.0' );
 
 /**
  * The code that runs during plugin activation.
