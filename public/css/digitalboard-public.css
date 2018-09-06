@@ -46,9 +46,7 @@
     text-align: center;
 }
 
-.list-group__no-result{
-    font-style: italic;
-}
+.list-group__no-result{}
 
 .digitalboard-list .read-more{
     float: right;
