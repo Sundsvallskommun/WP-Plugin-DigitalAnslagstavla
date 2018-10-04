@@ -97,7 +97,7 @@ class Digitalboard {
 	 * @since    1.0.0
 	 * @access   private
 	 */
-	private function load_dependencies() {
+	private function load_dependencies(){
 
 		/**
 		 * The class responsible for orchestrating the actions and filters of the
@@ -159,17 +159,16 @@ class Digitalboard {
 		$this->loader->add_action( 'admin_menu', $plugin_admin, 'remove_meta_boxes', 10 );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
-		$this->loader->add_action( 'acf/save_post', $plugin_admin, 'save_post', 10 );
 
 		$this->loader->add_filter( 'manage_digitalboard_posts_columns', $plugin_admin, 'custom_admin_columns' );
 		$this->loader->add_action( 'manage_digitalboard_posts_custom_column', $plugin_admin, 'custom_admin_column', 10, 2 );
 
 		$this->loader->add_filter( 'acf/fields/wysiwyg/toolbars', $plugin_admin, 'acf_tiny_mce_settings' );
 		$this->loader->add_filter( 'tiny_mce_before_init', $plugin_admin, 'tiny_mce_custom_formats', 20 );
-
+		$this->loader->add_action( 'acf/save_post', $plugin_admin, 'save_post', 10 );
 		$this->loader->add_action( 'digitalboard_status', $plugin_admin, 'update_status', 10, 2 );
 
-
+		$this->loader->add_action( 'add_meta_boxes', $plugin_admin, 'add_meta_box' );
 
 	}
 

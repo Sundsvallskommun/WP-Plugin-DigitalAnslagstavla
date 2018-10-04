@@ -2,3 +2,11 @@
  * All of the CSS for your admin-specific functionality should be
  * included in this file.
  */
+
+ .digitalboard-email-notice{
+
+ }
+
+ .digitalboard-email-notice input{
+     width: 100%;
+ }
