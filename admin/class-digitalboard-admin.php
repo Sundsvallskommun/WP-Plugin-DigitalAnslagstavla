@@ -208,14 +208,6 @@ class Digitalboard_Admin {
 		}
 
 		$body .= '<br><br>';
-		
-		if(!is_admin()){
-			echo $body;
-		}
-
-		wp_mail( $email, $subject, $body, $headers );
-
-
 
 		// log emails that are sent
 		$current_log = get_post_meta( $post_id, 'digitalboard_email_notice_log', true ); 
@@ -243,7 +235,9 @@ class Digitalboard_Admin {
 			if(!empty($current_log)){
 				$log = array_merge( $current_log, $log );
 			}
-		update_post_meta( $post_id, 'digitalboard_email_notice_log', $log );
+			
+			wp_mail( $email, $subject, $body, $headers );
+			update_post_meta( $post_id, 'digitalboard_email_notice_log', $log );
 		}	
 	
 	}
