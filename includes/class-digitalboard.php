@@ -156,6 +156,7 @@ class Digitalboard {
 		$this->loader->add_action( 'init', $plugin_admin, 'register_post_type', 10 );
 		$this->loader->add_action( 'init', $plugin_admin, 'register_taxonomy', 10 );
 		$this->loader->add_action( 'init', $plugin_admin, 'add_options_page', 10 );
+		$this->loader->add_action( 'admin_init', $plugin_admin, 'admin_init', 10 );
 		$this->loader->add_action( 'admin_menu', $plugin_admin, 'remove_meta_boxes', 10 );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );

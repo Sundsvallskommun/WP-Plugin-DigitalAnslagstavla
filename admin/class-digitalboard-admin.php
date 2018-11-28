@@ -54,14 +54,19 @@ class Digitalboard_Admin {
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
 
-		if ( isset( $_GET['update_digitalboard'] ) && $_GET['update_digitalboard'] === 'asfdwej2' ) {
-			$this->update_status();
-		}
+
 
 		$this->email_headers = array(
 			'From: Digitala anslagstavlan - sundsvall.se <webbgruppen@sundsvall.se>',
 			'Content-Type:text/html;charset=UTF-8'
 		);
+	}
+
+
+	public function admin_init(){
+		if ( isset( $_GET['update_digitalboard'] ) && $_GET['update_digitalboard'] === 'asfdwej2' ) {
+			$this->update_status();
+		}
 	}
 
 	/**
@@ -291,6 +296,8 @@ class Digitalboard_Admin {
 		$content[13]['value'] = Digitalboard_Public::get_taxonomy_name( get_field( 'digitalboard_contact', $post_id ), 'digitalboard-department', true );
 
 		$_files = get_field('digitalboard_related_docs', $post_id);
+		$file['title'] = '';
+		$file['url'] = '';
 		if( !empty( $_files ) ){
 			foreach( $_files as $_file ){
 				if( !empty( $_file['digitalboard_related_docs_link'] )){
