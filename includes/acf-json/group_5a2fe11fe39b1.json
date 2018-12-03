@@ -7,8 +7,8 @@
             "label": "E-postadress",
             "name": "digitalboard_organ_email",
             "type": "email",
-            "instructions": "",
-            "required": 0,
+            "instructions": "E-postadress används för att skicka en notis (logg) i samband med att ett anslag arkiveras samt som information till den som läser anslaget.",
+            "required": 1,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -38,5 +38,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1513087390
+    "modified": 1537272795
 }
